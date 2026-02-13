@@ -64,7 +64,7 @@ try:
     create_repo(
         repo_id=hf_repo_id_frontend,      # Name of the space to be created for Front End
         repo_type="space",                # repository type as 'space'
-        space_sdk="streamlit",            # Specify the space
+        space_sdk="docker",               # Specify the space
         private=False,                    # This is set as False, so that it is accessble to all
         exist_ok=True                     # ignore if present
     )
