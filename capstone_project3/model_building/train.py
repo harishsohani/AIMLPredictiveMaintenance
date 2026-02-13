@@ -173,6 +173,7 @@ with mlflow.start_run(run_name="xgb_pipeline_test"):
     mlflow.log_artifact(model_path, artifact_path="model")
     print(f"Model saved as artifact at: {model_path}")
 
+    '''
     # Upload to Hugging Face
     hf_repo_id    = "harishsohani/AIMLPredictiveMaintenance"
     hf_repo_type  = "model"
@@ -195,12 +196,14 @@ with mlflow.start_run(run_name="xgb_pipeline_test"):
     )
 
     print ("\nUploaded best model (best_eng_fail_pred_model.joblib) to Hugging Face Model Repo\n")
+    '''
 
     # ---------------------------------------
     # Upload file to Back End
     # After transitioning we can remove above upload
     # ---------------------------------------
 
+    '''
     # Upload to Hugging Face
     hf_repo_id    = "harishsohani/AIMLPredictiveMaintenanceBackEnd"
 
@@ -226,6 +229,7 @@ with mlflow.start_run(run_name="xgb_pipeline_test"):
         repo_id=hf_repo_id,
         repo_type="space",
     )
+    '''
 
 
     # display best pipeline

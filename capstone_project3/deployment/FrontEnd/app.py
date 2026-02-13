@@ -25,7 +25,7 @@ def formatted_number_input2(title, hint, minval, maxval, defvalue, steps, valfor
             f"""
             <div style="line-height:1.0">
                 <strong>{title}</strong><br>
-                <span style="font-size:1.20em; color:gray;">{hint}</span>
+                <span style="font-size:1.10em; color:gray;">(Range {hint})</span>
             </div>
             """,
             unsafe_allow_html=True
