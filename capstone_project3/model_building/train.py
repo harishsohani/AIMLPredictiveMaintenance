@@ -173,37 +173,11 @@ with mlflow.start_run(run_name="xgb_pipeline_test"):
     mlflow.log_artifact(model_path, artifact_path="model")
     print(f"Model saved as artifact at: {model_path}")
 
-    '''
-    # Upload to Hugging Face
-    hf_repo_id    = "harishsohani/AIMLPredictiveMaintenance"
-    hf_repo_type  = "model"
-
-    # Step 1: Check if the space exists
-    try:
-        api.repo_info(repo_id=hf_repo_id, repo_type=hf_repo_type)
-        print(f"Space '{hf_repo_id}' already exists. Using it.")
-    except RepositoryNotFoundError:
-        print(f"Space '{hf_repo_id}' not found. Creating new space...")
-        create_repo(repo_id=hf_repo_id, repo_type=hf_repo_type, private=False)
-        print(f"Space '{hf_repo_id}' created.")
-
-    # Upload model
-    api.upload_file(
-        path_or_fileobj="best_eng_fail_pred_model.joblib",
-        path_in_repo="best_eng_fail_pred_model.joblib",
-        repo_id=hf_repo_id,
-        repo_type=hf_repo_type,
-    )
-
-    print ("\nUploaded best model (best_eng_fail_pred_model.joblib) to Hugging Face Model Repo\n")
-    '''
 
     # ---------------------------------------
     # Upload file to Back End
-    # After transitioning we can remove above upload
     # ---------------------------------------
 
-    '''
     # Upload to Hugging Face
     hf_repo_id    = "harishsohani/AIMLPredictiveMaintenanceBackEnd"
 
@@ -229,7 +203,6 @@ with mlflow.start_run(run_name="xgb_pipeline_test"):
         repo_id=hf_repo_id,
         repo_type="space",
     )
-    '''
 
 
     # display best pipeline
