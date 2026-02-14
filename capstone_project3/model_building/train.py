@@ -186,9 +186,12 @@ with mlflow.start_run(run_name="xgb_pipeline_test"):
             repo_id=hf_repo_id,           # Name of the space to be created for back end
             repo_type="space",            # repository type as 'space'
             space_sdk="docker",           # Specify the space SDK as "docker" to create a Docker space
-            private=False                 # This is set as False, so that it is accessble to all
+            private=False,                # This is set as False, so that it is accessble to all
+            exist_ok=True                 # ignore if present
         )
+
         print(f"Backend space created: {hf_repo_id}")
+
     except Exception as e:
         # Handle potential errors during repository creation
         if "RepositoryAlreadyExistsError" in str(e):
