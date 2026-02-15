@@ -206,19 +206,26 @@ with col_inputs:
 
         submitted = st.form_submit_button("🚀 Check Maintenance")
 
-
+# Display output in 'col_output'
 with col_output:
 
-    # define place holders for output display
-    output_placeholder = st.empty()
-    probability_placeholder = st.empty()
-    details_placeholder = st.empty()
-    
 
     # ==========================
     # Single Value Prediction
     # ==========================
     with st.expander("🧠 Prediction Result", expanded=True):
+
+        # define place holders for output display
+        # these are defined under expander - this is important
+        output_placeholder = st.empty()
+        probability_placeholder = st.empty()
+        details_placeholder = st.empty()
+
+        # provision to display input details
+        # this is done to avoid confusion between current details which are pending submission v/s result shown
+        input_summary_header = st.empty()
+        input_summary_details = st.empty()
+
         # dispaly result only after submit is done
         if submitted:
         
@@ -267,8 +274,13 @@ with col_output:
                     details_placeholder.markdown(f"""
                     *Model         :* XGBoost  
                     *Inference     :* Real-time
+
                     *Note*         : Probability of 50% and above is considered as Maintenance Needed.
                     """)
+                    
+                    # Show the etails of data frame prepared from user input
+                    input_summary_header.subheader("📦 Input Data Summary")
+                    input_summary_details.dataframe (input_df)                    
                     
                 else:
         
